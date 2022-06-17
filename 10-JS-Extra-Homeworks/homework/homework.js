@@ -25,12 +25,23 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
-  const counts = {};
-  const sampleArray = string.split("");
-  sampleArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
-  return(counts)
+  const A={};
+  const sampleArray=string.split("");
+  sampleArray.forEach(function(x){A[x]=(A[x]||0)+1;});
+  return(A)
 
 }
+//var obj={}
+//for(i=0;i<string.length;i++)
+//{
+//  if(obj.hasOwnProperty(string[i]))
+//    {
+//        obj[string[i]]=+1;
+//    } 
+ //   else{string[i]=1}
+ // }
+ // return obj
+
 
 
 function capToFront(s) {
@@ -38,9 +49,14 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
-  const result = s.split(/(?=[A-Z])/);
-
-return result;
+ var may="";
+ var min="";
+ for(var x=0;x<s.length;x++)
+ {
+  if(s[x]===s[x].toUpperCase()){may+=s[x]}
+  else{min+=s[x]}
+ }
+ return may+min;
 }
 
 
@@ -50,10 +66,10 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+var a=str.split(" ").map(function(elemento){return elemento.split("").reverse().join("")})
 
 
-
-
+return a.join(" ")
 } 
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
@@ -80,10 +96,21 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
-  arr.sort();
-  const arr2= arr.sort();
-  return arr2;
-
+ var a=true;
+ while(a){
+  a=false;
+  for(x=0;x<arr.length-1;x++)
+  {
+    if(arr[x].length>arr[x+1].length)
+    {
+      var b=arr[x];
+      arr[x]=arr[x+1]
+      arr[x+1]=b;
+      a=true;
+    }
+  }
+ }
+return arr;
 }
 
 
